@@ -29,10 +29,10 @@ public class SwaggerConfig {
     }
 
     @Bean
-    public OpenAPI storyMateAPI() {
+    public OpenAPI kavaterAPI() {
         Info info = new Info()
-                .title("StoryMate API")
-                .description("StoryMate API 명세서")
+                .title("Kavater API")
+                .description("Kavater API 명세서")
                 .version("1.0.0");
 
         String jwtSchemeName = "JWT TOKEN";
