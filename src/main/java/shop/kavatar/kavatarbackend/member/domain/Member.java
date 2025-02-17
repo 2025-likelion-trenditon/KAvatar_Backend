@@ -33,7 +33,7 @@ public class Member {
     private long point;
 
     @Builder(access = AccessLevel.PRIVATE)
-    public Member(String email, String profileImageUrl, String password, String name, String nickname,
+    private Member(String email, String profileImageUrl, String password, String name, String nickname,
                   long point) {
         this.email = email;
         this.profileImageUrl = profileImageUrl;

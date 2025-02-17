@@ -23,7 +23,6 @@ public class MemberController {
         MemberInfoResponse memberInfoResponse = memberService.createNewMember(request);
 
         return ApiResponseTemplate.created("회원가입 성공", memberInfoResponse);
-
     }
 
     @GetMapping("/{id}")
