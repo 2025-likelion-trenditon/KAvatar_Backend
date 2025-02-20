@@ -51,15 +51,16 @@ jobs:
           key: ${{ secrets.ORACLE_SSH_PRIVATE_KEY }}
           envs: GITHUB_SHA
           script: |
-           CONTAINER_ID=$(sudo docker ps -q --filter "ancestor=${{ secrets.DOCKER_IMAGENAME }}:latest")
-           sudo docker stop $CONTAINER_ID
-           sudo docker rm -f $CONTAINER_ID
-           sudo docker pull ${{ secrets.DOCKER_IMAGENAME }}:latest
-           sudo docker run -d \
-              -p "${{ secrets.LOCAL_PORT }}:${{ secrets.DOCKER_PORT }}" \
-              -e "DATABASE_URL=${{ secrets.DATABASE_URL }}" \
-              -e "DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }}" \
-              -e "DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}" \
-              -e "SPRING_PROFILES_ACTIVE=${{ secrets.PROFILES }}" \
-              ${{ secrets.DOCKER_IMAGENAME }}:latest
-           sudo docker image prune -f
+            CONTAINER_ID=$(sudo docker ps -q --filter "ancestor=${{ secrets.DOCKER_IMAGENAME }}:latest")
+            sudo docker stop $CONTAINER_ID
+            sudo docker rm -f $CONTAINER_ID
+            sudo docker pull ${{ secrets.DOCKER_IMAGENAME }}:latest
+            sudo docker run -d \
+               -p "${{ secrets.LOCAL_PORT }}:${{ secrets.DOCKER_PORT }}" \
+               -e "DATABASE_URL=${{ secrets.DATABASE_URL }}" \
+               -e "DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }}" \
+               -e "DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}" \
+               -e "SPRING_PROFILES_ACTIVE=${{ secrets.PROFILES }}" \
+               -e "SERVER_URL=${{ secrets.SERVER_URL }}" \
+               ${{ secrets.DOCKER_IMAGENAME }}:latest
+            sudo docker image prune -f
