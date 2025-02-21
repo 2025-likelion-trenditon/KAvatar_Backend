@@ -34,7 +34,7 @@ public class Member {
 
     @Builder(access = AccessLevel.PRIVATE)
     private Member(String email, String profileImageUrl, String password, String name, String nickname,
-                  long point) {
+                   long point) {
         this.email = email;
         this.profileImageUrl = profileImageUrl;
         this.password = password;
@@ -44,9 +44,9 @@ public class Member {
     }
 
     public static Member createNewMember(String email,
-                                  String password,
-                                  String name,
-                                  String nickname) {
+                                         String password,
+                                         String name,
+                                         String nickname) {
         return Member.builder()
                 .email(email)
                 .password(password)
@@ -55,4 +55,9 @@ public class Member {
                 .point(0L)
                 .build();
     }
+
+    public void addPoint(long point) {
+        this.point += point;
+    }
+
 }
