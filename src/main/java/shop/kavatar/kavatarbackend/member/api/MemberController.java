@@ -15,7 +15,7 @@ import shop.kavatar.kavatarbackend.member.dto.response.MemberInfoResponse;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/members")
-public class MemberController {
+public class MemberController implements MemberControllerDocs {
     private final MemberService memberService;
 
     @PostMapping
@@ -25,9 +25,10 @@ public class MemberController {
         return ApiResponseTemplate.created("회원가입 성공", memberInfoResponse);
     }
 
-    @GetMapping("/{id}")
-    public ApiResponseTemplate<MemberInfoResponse> getMemberInfo(@PathVariable Long id) {
-        MemberInfoResponse memberInfoResponse = memberService.getMemberInfo(id);
+    @GetMapping("/{memberId}")
+    @Override
+    public ApiResponseTemplate<MemberInfoResponse> getMemberInfo(@PathVariable Long memberId) {
+        MemberInfoResponse memberInfoResponse = memberService.getMemberInfo(memberId);
 
         return ApiResponseTemplate.ok("회원 정보 조회 성공", memberInfoResponse);
     }
