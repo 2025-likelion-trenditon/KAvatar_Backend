@@ -40,7 +40,7 @@ public class InitialConsonantService {
                     member,
                     initialConsonant
             );
-
+            member.addPoint(10L);
             initialConsonantMemberRepository.save(initialConsonantMember);
 
             return AnswerStatus.CORRECT;
