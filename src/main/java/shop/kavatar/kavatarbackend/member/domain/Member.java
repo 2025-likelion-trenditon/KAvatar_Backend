@@ -13,7 +13,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import shop.kavatar.kavatarbackend.initialconsonant.application.InitialConsonantMember;
+import shop.kavatar.kavatarbackend.initialconsonant.domain.InitialConsonantMember;
 
 @Entity
 @Getter

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import shop.kavatar.kavatarbackend.member.dto.request.CreateMemberRequest;
 import shop.kavatar.kavatarbackend.member.dto.response.MemberInfoResponse;
 import shop.kavatar.kavatarbackend.global.template.ApiResponseTemplate;
+import shop.kavatar.kavatarbackend.member.dto.response.MemberInfosResponse;
 
 public interface MemberControllerDocs {
 
@@ -31,4 +32,14 @@ public interface MemberControllerDocs {
     })
     ApiResponseTemplate<MemberInfoResponse> getMemberInfo(@Parameter(description = "사용자 ID")
                                                           @PathVariable Long memberId);
+
+    @Operation(
+            summary = "포인트 내림차순 회원 조회",
+            description = "포인트 내림차순으로 상위 10명의 회원을 조회합니다."
+    )
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "포인트 내림차순 회원 조회 성공"),
+            @ApiResponse(responseCode = "404", description = "포인트 내림차순 회원 조회 실패")
+    })
+    ApiResponseTemplate<MemberInfosResponse> getMembersByPointDesc();
 }
