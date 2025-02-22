@@ -11,6 +11,7 @@ import shop.kavatar.kavatarbackend.global.template.ApiResponseTemplate;
 import shop.kavatar.kavatarbackend.member.application.MemberService;
 import shop.kavatar.kavatarbackend.member.dto.request.CreateMemberRequest;
 import shop.kavatar.kavatarbackend.member.dto.response.MemberInfoResponse;
+import shop.kavatar.kavatarbackend.member.dto.response.MemberInfosResponse;
 
 @RestController
 @RequiredArgsConstructor
@@ -31,5 +32,11 @@ public class MemberController implements MemberControllerDocs {
         MemberInfoResponse memberInfoResponse = memberService.getMemberInfo(memberId);
 
         return ApiResponseTemplate.ok("회원 정보 조회 성공", memberInfoResponse);
+    }
+
+    @GetMapping("/ranking")
+    @Override
+    public ApiResponseTemplate<MemberInfosResponse> getMembersByPointDesc() {
+        return ApiResponseTemplate.ok("포인트 내림차순 회원 10명 조회 성공", memberService.getMembersByPointDesc());
     }
 }
