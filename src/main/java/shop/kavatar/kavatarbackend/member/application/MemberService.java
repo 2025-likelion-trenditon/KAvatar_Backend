@@ -7,6 +7,7 @@ import shop.kavatar.kavatarbackend.global.error.exception.BadRequestException;
 import shop.kavatar.kavatarbackend.member.domain.Member;
 import shop.kavatar.kavatarbackend.member.dto.request.CreateMemberRequest;
 import shop.kavatar.kavatarbackend.member.dto.response.MemberInfoResponse;
+import shop.kavatar.kavatarbackend.member.dto.response.MemberInfosResponse;
 import shop.kavatar.kavatarbackend.member.repository.MemberRepository;
 
 @Service
@@ -37,5 +38,10 @@ public class MemberService {
                 .orElseThrow(() -> new BadRequestException("존재하지 않는 회원입니다: " + id));
 
         return MemberInfoResponse.from(member);
+    }
+
+    @Transactional(readOnly = true)
+    public MemberInfosResponse getMembersByPointDesc() {
+        return MemberInfosResponse.from(memberRepository.findTop10ByOrderByPointDesc());
     }
 }

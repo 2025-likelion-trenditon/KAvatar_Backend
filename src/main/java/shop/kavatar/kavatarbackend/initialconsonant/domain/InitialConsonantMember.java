@@ -1,4 +1,4 @@
-package shop.kavatar.kavatarbackend.initialconsonant.application;
+package shop.kavatar.kavatarbackend.initialconsonant.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,7 +11,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import shop.kavatar.kavatarbackend.global.domain.BaseTimeEntity;
-import shop.kavatar.kavatarbackend.initialconsonant.domain.InitialConsonant;
 import shop.kavatar.kavatarbackend.member.domain.Member;
 
 @Entity

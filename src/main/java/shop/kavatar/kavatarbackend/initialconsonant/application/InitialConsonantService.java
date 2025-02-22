@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import shop.kavatar.kavatarbackend.initialconsonant.domain.AnswerStatus;
 import shop.kavatar.kavatarbackend.initialconsonant.domain.InitialConsonant;
+import shop.kavatar.kavatarbackend.initialconsonant.domain.InitialConsonantMember;
 import shop.kavatar.kavatarbackend.initialconsonant.dto.request.InitialConsonantResultRequest;
 import shop.kavatar.kavatarbackend.initialconsonant.dto.response.InitialConsonantResultsResponse;
 import shop.kavatar.kavatarbackend.initialconsonant.repository.InitialConsonantMemberRepository;
