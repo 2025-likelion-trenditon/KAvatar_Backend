@@ -51,6 +51,7 @@ public class ImageService {
         storageSave(multipartFile, filePath, storage);
         Image image = imageSave(imgUrl, member);
 
+        member.updateProfileImageUrl(image.getConvertImageUrl());
         return ImageResDto.from(image);
     }
 

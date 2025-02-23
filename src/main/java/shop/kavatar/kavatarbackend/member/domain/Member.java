@@ -68,4 +68,8 @@ public class Member {
         this.point += point;
     }
 
+    public void updateProfileImageUrl(String profileImageUrl) {
+        this.profileImageUrl = profileImageUrl;
+    }
+
 }
