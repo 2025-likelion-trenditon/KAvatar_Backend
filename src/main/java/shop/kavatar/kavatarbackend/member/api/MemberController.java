@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import shop.kavatar.kavatarbackend.global.template.ApiResponseTemplate;
 import shop.kavatar.kavatarbackend.member.application.MemberService;
 import shop.kavatar.kavatarbackend.member.dto.request.CreateMemberRequest;
+import shop.kavatar.kavatarbackend.member.dto.request.LoginRequest;
 import shop.kavatar.kavatarbackend.member.dto.response.MemberInfoResponse;
 import shop.kavatar.kavatarbackend.member.dto.response.MemberInfosResponse;
 
@@ -38,5 +39,12 @@ public class MemberController implements MemberControllerDocs {
     @Override
     public ApiResponseTemplate<MemberInfosResponse> getMembersByPointDesc() {
         return ApiResponseTemplate.ok("포인트 내림차순 회원 10명 조회 성공", memberService.getMembersByPointDesc());
+    }
+
+    @PostMapping("/login")
+    @Override
+    public ApiResponseTemplate<MemberInfoResponse> login(@RequestBody LoginRequest request) {
+        MemberInfoResponse memberInfoResponse = memberService.login(request);
+        return ApiResponseTemplate.ok("로그인 성공", memberInfoResponse);
     }
 }
