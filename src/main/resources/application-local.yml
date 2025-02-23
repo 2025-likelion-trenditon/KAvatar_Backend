@@ -18,6 +18,14 @@ spring:
     password: ${DATABASE_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+  cloud:
+    gcp:
+      storage:
+        credentials:
+          location: ${GCP_STORAGE_LOCATION}
+        project-id: ${GCP_STORAGE_PROJECT_ID}
+        bucket: ${GCP_STORAGE_BUCKET}
+
 logging:
   level:
     org.hibernate.SQL: debug
