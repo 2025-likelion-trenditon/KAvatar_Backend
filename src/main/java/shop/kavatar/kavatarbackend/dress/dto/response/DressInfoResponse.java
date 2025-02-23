@@ -5,8 +5,8 @@ import shop.kavatar.kavatarbackend.dress.domain.Dress;
 
 @Builder
 public record DressInfoResponse(
-        int singleDress,
-        int accessory
+        String singleDress,
+        String accessory
 ) {
     public static DressInfoResponse from(Dress dress) {
         return DressInfoResponse.builder()

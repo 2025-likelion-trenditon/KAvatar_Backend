@@ -28,18 +28,18 @@ public class Dress {
     @JoinColumn(name = "id")
     private Member member;
 
-    private int singleDress;
+    private String singleDress;
 
-    private int accessory;
+    private String accessory;
 
     @Builder(access = AccessLevel.PRIVATE)
-    private Dress(Member member, int singleDress, int accessory) {
+    private Dress(Member member, String singleDress, String accessory) {
         this.member = member;
         this.singleDress = singleDress;
         this.accessory = accessory;
     }
 
-    public static Dress createNewDress(Member member, int singleDress, int accessory) {
+    public static Dress createNewDress(Member member, String singleDress, String accessory) {
         return Dress.builder()
                 .member(member)
                 .singleDress(singleDress)
