@@ -28,7 +28,8 @@ public class DressService {
         Dress dress = Dress.createNewDress(
                 member,
                 request.singleDress(),
-                request.accessory()
+                request.accessory(),
+                request.skinColor()
         );
 
         dressRepository.save(dress);
