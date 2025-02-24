@@ -32,18 +32,22 @@ public class Dress {
 
     private String accessory;
 
+    private String skinColor;
+
     @Builder(access = AccessLevel.PRIVATE)
-    private Dress(Member member, String singleDress, String accessory) {
+    private Dress(Member member, String singleDress, String accessory, String skinColor) {
         this.member = member;
         this.singleDress = singleDress;
         this.accessory = accessory;
+        this.skinColor = skinColor;
     }
 
-    public static Dress createNewDress(Member member, String singleDress, String accessory) {
+    public static Dress createNewDress(Member member, String singleDress, String accessory, String skinColor) {
         return Dress.builder()
                 .member(member)
                 .singleDress(singleDress)
                 .accessory(accessory)
+                .skinColor(skinColor)
                 .build();
     }
 

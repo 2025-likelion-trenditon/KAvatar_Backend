@@ -13,7 +13,7 @@ import shop.kavatar.kavatarbackend.global.template.ApiResponseTemplate;
 public interface DressControllerDocs {
 
     @Operation(summary = "옷 입히기 저장하기", description = "옷 입히기 게임을 저장합니다. 옷 정보가 있습니다."
-            + "memberId: 사용자 아이디, singleDress: 한 벌 의상, accessory: 액세서리, point: 포인트")
+            + "memberId: 사용자 아이디, singleDress: 한 벌 의상, accessory: 액세서리, skinColor: 피부색, point: 포인트")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "성공"),
     })
